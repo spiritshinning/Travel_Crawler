@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FFCCCC; -fx-word-break: br;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vedulieu.Controller">
+    <children>
+        <ComboBox fx:id="comBoBox" layoutX="203.0" layoutY="19.0" onAction="#comBoBoxChanged" prefWidth="150.0" promptText="Topic" style="-fx-background-color: #CCFFFF;" />
+        <Label fx:id="label" layoutX="30.0" layoutY="23.0" style="-fx-background-color: #CCFFFF;" text="Name" />
+        <ImageView fx:id="imageView" fitHeight="174.0" fitWidth="303.0" layoutX="35.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/festival.jpg" />
+            </image>
+        </ImageView>
+        <TableView fx:id="table" layoutX="364.0" layoutY="23.0" prefHeight="786.0" prefWidth="836.0" style="-fx-table-layout: fixed; width: 100%" AnchorPane.topAnchor="23.0">
+            <columns>
+                <TableColumn fx:id="linkClolumn" prefWidth="147.199951171875" style="-fx-word-break: break-all;-fx-white-space:nowrap;" text="Link" />
+                <TableColumn fx:id="abtractClolumn" prefWidth="437.60003662109375" style="-fx-word-break: break-all;" text="Abtract" />
+                <TableColumn fx:id="thumbClolumn" prefWidth="311.19989013671875" style="-fx-word-break: break-all" text="Thumnail" />
+            </columns>
+        </TableView>
+      <Label fx:id="label1" layoutX="37.0" layoutY="59.0" prefHeight="43.0" prefWidth="182.0" style="-fx-background-color: #CCFFFF; -fx-word-break: break-all;" text="Picture related to topic" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="37.0" layoutY="290.0" prefHeight="43.0" prefWidth="126.0" style="-fx-background-color: #CCFFFF;" text="Query" />
+      <TextArea fx:id="textArea" layoutX="35.0" layoutY="333.0" prefHeight="231.0" prefWidth="303.0" promptText="Query prepared" />
+      <ComboBox fx:id="comBoBox1" layoutX="173.0" layoutY="668.0" prefHeight="26.0" prefWidth="161.0" promptText="Format" style="-fx-background-color: #CCFFFF;" />
+      <Label layoutX="37.0" layoutY="668.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #CCFFFF;" text="Format" />
+      <Button fx:id="getDataButton" layoutX="67.0" layoutY="721.0" mnemonicParsing="false" onAction="#getData" prefHeight="43.0" prefWidth="211.0" style="-fx-background-color: #CCFFFF;" text="GetData" />
+      <TextField fx:id="textField" layoutX="35.0" layoutY="623.0" prefHeight="26.0" prefWidth="303.0" />
+      <Label layoutX="37.0" layoutY="579.0" prefHeight="43.0" prefWidth="126.0" style="-fx-background-color: #CCFFFF;" text="Name of file" />
+    </children>
+</AnchorPane>
