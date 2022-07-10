@@ -5,7 +5,7 @@ import org.apache.jena.query.ParameterizedSparqlString;
 public class GetQuery {
     public GetQuery() {
     }
-    private String location="http://dbpedia.org/sparql";
+    private final String location="http://dbpedia.org/sparql";
     public String Relocation()
     {
         return this.location;
@@ -43,9 +43,7 @@ public class GetQuery {
         queryStr.setNsPrefix("dc", "http://purl.org/dc/elements/1.1/");
         queryStr.setNsPrefix("yago", "http://dbpedia.org/class/yago/");
         String[] text=new String[100];
-        text[0]="\n" +
-                "\n" +
-                "select distinct ?p ?abstract ?thumb\n" +
+        text[0]="select distinct ?p ?abstract ?thumb\n" +
                 "where {\n" +
                 "       {{?p rdf:type dbo:Cave.} UNION {?p rdf:type dbo:NaturalPlace.}}\n" +
                 "       {{?p dbo:location dbr:Vietnam.} UNION {?p dbo:country dbr:Vietnam.}}\n" +

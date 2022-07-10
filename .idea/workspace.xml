@@ -4,81 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27034fb4-b0c3-4866-bd0c-ab2665fdebb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/vemanhinh/img/kiwi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vemanhinh/img/linh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vemanhinh/img/quan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vemanhinh/img/toan.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/apache_jena_arq.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/apache_jena_arq.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/apache_jena_core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/apache_jena_core.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShowData/PrintData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowData/PrintData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShowData/ReadTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowData/ReadTxt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShowData/TouristDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowData/TouristDescription.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawJena/CrawRDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/CrawRDF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawJena/Formatsaved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/Formatsaved.java" afterDir="false" />
+    <list default="true" id="27034fb4-b0c3-4866-bd0c-ab2665fdebb8" name="Changes" comment="test commit">
       <change beforePath="$PROJECT_DIR$/src/crawJena/GetQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/GetQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawJena/GetResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/GetResultSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawJena/SaveFormFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/SaveFormFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crawJena/SaveFromJavaFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/SaveFromJavaFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/Airport.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/Airport.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/cityinVietnam.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/cityinVietnam.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/festival.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/festival.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/food.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/food.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/heritagesites.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/heritagesites.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/island.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/island.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/lake.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/lake.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/moutain.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/moutain.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fileout/tourist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/fileout/tourist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/Airport.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/River.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/airline.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/beach.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/cityinVietnam.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/dynasty.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/ethnic.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/festival.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/food.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/heritagesites.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/island.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/lake.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/moutain.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/pagoda.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/province.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/tourist.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fliesaved/touristacommodation.ttl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vedulieu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vedulieu/DuLieuDuLich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/DuLieuDuLich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vedulieu/Sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/Sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vedulieu/VeJavaFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/VeJavaFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vedulieu/img/lake.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/img/lake.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/ControllerUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/MarketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/MyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/MyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/SampleUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/VeUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/banana.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/cherry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/coconut.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/grapes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/ic_cart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/ic_stopwatch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/kiwi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/mango.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/peach.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/strawberry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/watermelon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/item.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/market.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/market.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testjena.iml" beforeDir="false" afterPath="$PROJECT_DIR$/testjena.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +23,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -294,8 +222,16 @@
       <workItem from="1657389113495" duration="10647000" />
       <workItem from="1657399881714" duration="4000" />
       <workItem from="1657399951807" duration="587000" />
-      <workItem from="1657423767822" duration="2683000" />
+      <workItem from="1657423767822" duration="3220000" />
     </task>
+    <task id="LOCAL-00001" summary="test commit">
+      <created>1657427727089</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657427727089</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +253,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/JavaFX" />
     </ignored-roots>
+    <MESSAGE value="test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

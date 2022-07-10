@@ -1,0 +1,86 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix res: <http://www.w3.org/2005/sparql-results#> .
+
+[ rdf:type            res:ResultSet ;
+  res:resultVariable  "p" , "abstract" , "thumb" ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Vietnam,_Ninh_Binh,_Trang_An_Limestone_Peaks.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Tràng An is a scenic area near Ninh Bình, Vietnam renowned for its boat cave tours.On 23 June 2014, at the 38th session of the World Heritage Committee in Doha, the Trang An Scenic Landscape Complex was inscribed as a UNESCO World Heritage Site. The Trang An Scenic Landscape Complex includes Hoa Lư, Tam Cốc/Bích Động, and Bai Dinh Temple."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Tràng_An_Scenic_Landscape_Complex> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Phongnhakebang6.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Phong Nha-Kẻ Bàng (Vietnamese: Vườn quốc gia Phong Nha-Kẻ Bàng) is a national park and UNESCO World Heritage Site in the Bố Trạch and Minh Hóa districts of central Quảng Bình Province in the North Central Coast region of Vietnam, about 500 km south of Hanoi. The park borders the Hin Namno National Park in Khammouane Province, Laos to the west and 42 km east of the South China Sea from its borderline point. Phong Nha-Kẻ Bàng National Park is in a limestone zone of 2,000 km2 in Vietnamese territory and borders another limestone zone of 2,000 km2 of Hin Namno in Laotian territory. The core zone of this national park covers 857.54 km2 and a buffer zone of 1,954 km2."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Phong_Nha_–_Kẻ_Bàng_National_Park> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Tay_Do_castle_South_gate.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Citadel of the Hồ Dynasty (Vietnamese: Thành nhà Hồ, Hán Nôm: 城家胡; also called Tây Đô castle or Tây Giai castle) is a 15th century stone fortress in Thanh Hóa, Vietnam. It served as the Western Capital of the Hồ Dynasty (1400-1407). It is located in Tây Giai commune, Vĩnh Lộc District, in Thanh Hóa Province, in Vietnam's North Central Coast region. The castle was constructed from stone blocks, each of which is 2×1×0.7 m (6.6×3.3×2.3 ft) size on average. Except for its gates, the castle is mostly ruined. The Citadel was inscribed on UNESCO World Heritage Sites on June 27, 2011."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Citadel_of_the_Hồ_Dynasty> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Main_Gate_-_Citadel_of_Hanoi.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "The Imperial Citadel of Thăng Long (Vietnamese: Hoàng thành Thăng Long; Hán-Nôm: 皇城昇龍) is a complex of historic imperial buildings located in the centre of Hanoi, Vietnam. It was first constructed in 1011 under the reign of Emperor Lý Thái Tổ of Lý dynasty."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Imperial_Citadel_of_Thăng_Long> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/My_Son.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Mỹ Sơn (Vietnamese pronunciation: [mǐˀ səːn]) is a cluster of abandoned and partially ruined Hindu temples in central Vietnam, constructed between the 4th and the 14th century by the Kings of Champa, an Indianized kingdom of the Cham people. The temples are dedicated to the worship of the god Shiva, known under various local names, the most important of which is Bhadreshvara. Mỹ Sơn is perhaps the longest inhabited archaeological site in Indochina, but a large majority of its architecture was destroyed by US bombing during a single week of the Vietnam War."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Mỹ_Sơn> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Hoi_An_(I).jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Hội An (Vietnamese: [hôjˀ aːn]), formerly known as Fai-Fo or Faifoo, is a city with a population of approximately 120,000 in Vietnam's Quảng Nam Province and is noted as a UNESCO World Heritage Site since 1999. Along with the Cu Lao Cham archipelago, it is part of the Cu Lao Cham-Hoi An Biosphere Reserve, designated in 2009."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Hội_An> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Ha_Long_Bay_in_2019.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Hạ Long Bay or Halong Bay (Vietnamese: Vịnh Hạ Long, IPA: [vînˀ hâːˀ lawŋm]) is a UNESCO World Heritage Site and popular travel destination in Quảng Ninh Province, Vietnam. The name Hạ Long means \"descending dragon\". Administratively, the bay belongs to Hạ Long city, Cẩm Phả city, and is a part of Vân Đồn District. The bay features thousands of limestone karsts and isles in various shapes and sizes. Ha Long Bay is a center of a larger zone which includes Bai Tu Long Bay to the northeast, and Cát Bà Island to the southwest. These larger zones share a similar geological, geographical, geomorphological, climate, and cultural characters."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Hạ_Long_Bay> ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Truong_Tien_bridge_(I).jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Huế (Vietnamese: [hwě]) is the capital of Thừa Thiên Huế Province in central Vietnam and was the capital of Đàng Trong from 1738 to 1775 and of the Nguyễn Dynasty from 1802 to 1945. The city served as the administrative capital for the Nguyễn dynasty, and later functioned as the administrative capital of the protectorate of Annam during the French Indochina period."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     <http://dbpedia.org/resource/Huế> ;
+                                       res:variable  "p"
+                                     ]
+                      ]
+] .

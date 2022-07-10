@@ -1,0 +1,137 @@
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix res: <http://www.w3.org/2005/sparql-results#> .
+
+[ rdf:type            res:ResultSet ;
+  res:resultVariable  "thumb" , "p" , "abstract" ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/culaoresat.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Cù-Lao Ré is a volcanic field northeast of Quảng Ngãi, Vietnam. The field consists of 13 volcanic cones; four subaerial and nine submarine. Three of the subaerial cones formed the Cù-Lao Ré Island, while the fourth one formed the Cù-Lao Bai Island. The islands form the Lý Sơn District of Quảng Ngãi Province."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Cù_Lao_Ré_volcanic_islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Quần_đảo_Bà_Lụa_2.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Bà Lụa Islands (Vietnamese: Quần đảo Bà Lụa) is an archipelago located in the Gulf of Thailand. It constitutes Sơn Hải Commune of Kiên Lương District, Kiên Giang Province, Vietnam. The archipelago is known as \"(Small) Ha Long of the South\"."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Bà_Lụa_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Asia_-_South_China_Sea_-_Mui_Da_Nang_to_Shen-Ch'uan_Chiang_including_Hai-Nan_Tao_and_Paracel_Islands_(Paracel_Islands_cropped).jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "The Paracel Islands, also known as the Xisha Islands (simplified Chinese: 西沙群岛; traditional Chinese: 西沙群島; pinyin: xīshā qúndǎo; lit. 'West Sand Archipelago') and the Hoang Sa Archipelago (Vietnamese: Quần đảo Hoàng Sa, lit. 'Yellow Sand Archipelago'), are a disputed archipelago in the South China Sea."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Paracel_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Spratly_Islands_in_the_South_China_Sea_Department_of_State_map_2016587286_(2015).jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "The Spratly Islands (Filipino: Kapuluan ng Kalayaan; Chinese: 南沙群島/南沙群岛; pinyin: Nánshā Qúndǎo; Malay: Kepulauan Spratly; Vietnamese: Quần đảo Trường Sa) are a disputed archipelago in the South China Sea. Composed of islands, islets, cays, and more than 100 reefs, sometimes grouped in submerged old atolls, the archipelago lies off the coasts of the Philippines, Malaysia, and southern Vietnam. Named after the 19th-century British whaling captain Richard Spratly who sighted Spratly Island in 1843, the islands contain less than 2 km2 (490 acres) of naturally occurring land area, which is spread over an area of more than 425,000 km2 (164,000 sq mi)."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Spratly_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Dinh_Cậu_Phú_Quốc.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Phú Quốc (Vietnamese: [fǔ kǔə̯k]) is the largest island in Vietnam. Phú Quốc and nearby islands, along with the distant Thổ Chu Islands, are part of Kiên Giang Province as Phú Quốc City, the island has a total area of 574 km2 (222 sq mi) and a permanent population of approximately 179,480 people. Located in the Gulf of Thailand, the island city of Phú Quốc includes the island proper and 21 smaller islets. Dương Đông ward is located on the west coast, and is also the administrative and largest town on the island. The other ward is An Thới on the southern tip of the island."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Phú_Quốc ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Cau_cang_Dao_cu_tron-quan_Dao_nam_du._xa_An_Sơn,_Huyen_Kiên_Hải,_tỉnh_Kiên_Giang,_Việt_Nam,02-07-16-Dyt_-_panoramio.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Nam Du Islands (Vietnamese: Quần đảo Nam Du) is an archipelago located in the Gulf of Thailand, southeast of Phú Quốc Island. It constitutes An Sơn and Nam Du Commune of Kiên Hải District, Kiên Giang Province, Vietnam."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Nam_Du_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Tuần_Châu.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Tuần Châu is a schist island on the southwest side of Hạ Long City in Vietnam."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Tuần_Châu ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Côn_Đảo_Prison.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Côn Sơn, also known as Côn Lôn is the largest island of the Côn Đảo archipelago, off the coast of southern Vietnam."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Côn_Sơn_Island ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Txu-oclc-6535632-nc48-10-4th-ed.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Thổ Chu Islands (Vietnamese: quần đảo Thổ Chu) is an archipelago in the Gulf of Thailand. It constitutes Tho Chau Commune of Phú Quốc District, Kiên Giang Province, Vietnam."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Thổ_Chu_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/ConDao_park_dam.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "The Côn Đảo (\"Côn Island\") are an archipelago of Bà Rịa–Vũng Tàu province, in the Southeast region of Vietnam, and also a district (Vietnamese: Huyện Côn Đảo, lit. 'Côn Đảo district') of this province."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Côn_Đảo ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/ChamIslands1.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "The Cham Islands (Vietnamese: Cù lao Chàm) constitute a group of 8 small islands of Quảng Nam, which form a part of the Cu Lao Cham Marine Park, a world Biosphere Reserve recognized by UNESCO, in the in Vietnam. The islands are approachable from Cửa Đại beach. The islands are also recognized as Vietnam's national scenic site. The occupation of the people of the islands is mainly fishing."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Chàm_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Một_phần_quần_đảo_Hà_Tiên.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Hà Tiên Islands (Vietnamese: Quần đảo Hà Tiên) is an archipelago located in the Gulf of Thailand. It constitutes Tien Hai Commune of Hà Tiên, Kiên Giang Province, Vietnam. Since pirates used to plague the region in the past, another popular name for the islands is Hải Tặc Islands (Quần đảo Hải Tặc, literally \"Pirate Islands\")."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Hà_Tiên_Islands ;
+                                       res:variable  "p"
+                                     ]
+                      ] ;
+  res:solution        [ res:binding  [ res:value     <http://commons.wikimedia.org/wiki/Special:FilePath/Cat_Ba_town.jpg?width=300> ;
+                                       res:variable  "thumb"
+                                     ] ;
+                        res:binding  [ res:value     "Cát Bà Island is the largest of the 367 islands spanning 260 km2 (100 sq mi) that comprise the Cat Ba Archipelago, which makes up the southeastern edge of Lan Ha Bay in Northern Vietnam. Cat Ba island has a surface area of 285 km2 (110 sq mi) and maintains the dramatic and rugged features of Ha Long Bay."@en ;
+                                       res:variable  "abstract"
+                                     ] ;
+                        res:binding  [ res:value     dbr:Cát_Bà_Island ;
+                                       res:variable  "p"
+                                     ]
+                      ]
+] .
