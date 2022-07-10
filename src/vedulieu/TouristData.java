@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
-public class DuLieuDuLich {
+public class TouristData {
 
     private int qu = 0;
     private ReadTxt MoTaDuLich = new ReadTxt();
@@ -21,9 +21,10 @@ public class DuLieuDuLich {
         DataText = MoTaDuLich.GetData(qu);
         dem = MoTaDuLich.getDem();
     }
-    public void setQuery(int qu,String filename) throws IOException {
+
+    public void setQuery(int qu, String filename) throws IOException {
         this.qu = qu;
-        DataText = MoTaDuLich.GetData(qu,filename);
+        DataText = MoTaDuLich.GetData(qu, filename);
         dem = MoTaDuLich.getDem();
     }
 
@@ -39,29 +40,30 @@ public class DuLieuDuLich {
         return dem;
     }
 
-    public DuLieuDuLich(int d, int qu) throws IOException {
+    public TouristData(int d, int qu) throws IOException {
         this.setQuery(qu);
         DataText = MoTaDuLich.GetData(qu);
         this.setLink(d);
         this.setAbstract(d);
         this.setThumbnail(d);
     }
-    public DuLieuDuLich(int d,int qu, String filename) throws IOException {
-        this.setQuery(qu,filename);
-        DataText = MoTaDuLich.GetData(qu,filename);
+
+    public TouristData(int d, int qu, String filename) throws IOException {
+        this.setQuery(qu, filename);
+        DataText = MoTaDuLich.GetData(qu, filename);
         this.setLink(d);
         this.setAbstract(d);
         this.setThumbnail(d);
     }
 
-    public DuLieuDuLich(String link, String astract, String thumb) throws IOException {
+    public TouristData(String link, String astract, String thumb) throws IOException {
         this.linkDulieu = link;
         this.abtractDulieu = astract;
         this.thumnailDulieu = thumb;
         // this.image=new Image(getClass().getResourceAsStream(this.thumnailDulieu));
     }
 
-    public DuLieuDuLich() throws IOException {
+    public TouristData() throws IOException {
     }
 
     public void setData(int d) {

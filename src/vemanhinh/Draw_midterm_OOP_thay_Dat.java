@@ -11,16 +11,15 @@ import java.io.IOException;
 public class Draw_midterm_OOP_thay_Dat extends Application {
 
     public static final String Contribute = "%";
+
     @Override
-    public void start(Stage primaryStage) throws IOException{
-        try
-        {
+    public void start(Stage primaryStage) throws IOException {
+        try {
             Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
             primaryStage.setTitle("Squad");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

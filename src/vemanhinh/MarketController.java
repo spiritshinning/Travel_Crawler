@@ -88,7 +88,7 @@ public class MarketController implements Initializable {
 
     private void setChosenFruit(Member member) {
         memberNameLable.setText(member.getName());
-        memberPriceLabel.setText(member.getPrice()+Draw_midterm_OOP_thay_Dat.Contribute);
+        memberPriceLabel.setText(member.getPrice() + Draw_midterm_OOP_thay_Dat.Contribute);
         //System.out.println(fruit.getImgSrc());
         image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(member.getImgSrc())));
         fruitImg.setImage(image);
@@ -117,7 +117,7 @@ public class MarketController implements Initializable {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 ItemController itemController = fxmlLoader.getController();
-                itemController.setData(members.get(i),myListener);
+                itemController.setData(members.get(i), myListener);
 
                 if (column == 2) {
                     column = 0;

@@ -28,7 +28,7 @@ public class ItemController {
         this.member = member;
         this.myListener = myListener;
         nameLabel.setText(member.getName());
-        priceLable.setText(member.getPrice()+Draw_midterm_OOP_thay_Dat.Contribute);
+        priceLable.setText(member.getPrice() + Draw_midterm_OOP_thay_Dat.Contribute);
         Image image = new Image(getClass().getResourceAsStream(member.getImgSrc()));
         img.setImage(image);
     }

@@ -1,7 +1,6 @@
 package vedulieu;
 
 import ShowData.TouristDescription;
-import crawJena.SaveFormFile;
 import crawJena.SaveFromJavaFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,13 +17,10 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class Controller extends TouristDescription implements Initializable  {
-
+public class Controller extends TouristDescription implements Initializable {
     @FXML
     private ImageView imageView;
-    //private String path=("http://commons.wikimedia.org/wiki/Special:FilePath/Trung_tâm_thương_mại_Bà_Rịa.jpg?width=300");
-    //Image image = new Image(path);
-     Image image= new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/logohust.png")));
+    Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/logohust.png")));
     private final Image image0 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/quetoi.jpg")));
     private final Image image1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/food.jpg")));
     private final Image image2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("img/festival.jpg")));
@@ -45,15 +41,15 @@ public class Controller extends TouristDescription implements Initializable  {
     @FXML
     private ComboBox<String> comBoBox1;
     @FXML
-    private TableView<DuLieuDuLich> table;
+    private TableView<TouristData> table;
     @FXML
-    private TableColumn<DuLieuDuLich, Hyperlink> linkClolumn;
+    private TableColumn<TouristData, Hyperlink> linkClolumn;
     @FXML
-    private TableColumn<DuLieuDuLich, String> abtractClolumn;
+    private TableColumn<TouristData, String> abtractClolumn;
     @FXML
-    private TableColumn<DuLieuDuLich, String> thumbClolumn;
+    private TableColumn<TouristData, String> thumbClolumn;
 
-    private ObservableList<DuLieuDuLich> touristList;
+    private ObservableList<TouristData> touristList;
     @FXML
     public Label label;
     @FXML
@@ -64,24 +60,27 @@ public class Controller extends TouristDescription implements Initializable  {
     public TextField textField;
     @FXML
     public Button getDataButton;
-    DuLieuDuLich Data = new DuLieuDuLich();
-    ObservableList<String> list = FXCollections.observableArrayList("TouristPlace", "TouristFood", "TouristFestival", "City","Airline","Ethnic","Lake","Heritage Sites","Tourist accommodation","Dynasty","Airport","Beach","Pagoda","Mountain","Island");
-    ObservableList<String> list1 = FXCollections.observableArrayList("TURTLE", "JSON-LD", "RDF/XML", "N-TRIPLES","RDF/JSON","N3");
+    TouristData Data = new TouristData();
+    ObservableList<String> list = FXCollections.observableArrayList("TouristPlace", "TouristFood", "TouristFestival", "City", "Airline", "Ethnic", "Lake", "Heritage Sites", "Tourist accommodation", "Dynasty", "Airport", "Beach", "Pagoda", "Mountain", "Island");
+    ObservableList<String> list1 = FXCollections.observableArrayList("TURTLE", "JSON-LD", "RDF/XML", "N-TRIPLES", "RDF/JSON", "N3");
 
     public Controller() throws IOException {
     }
+
     private String text;
     private String filename;
-    private String file_format="TURTLE";
+    private String file_format = "TURTLE";
+
     public void getData(ActionEvent event) throws IOException {
-        this.text=textArea.getText();
-        this.filename=textField.getText();
-        this.file_format=comBoBox1.getValue();
-        SaveFromJavaFX a=new SaveFromJavaFX(text,filename,file_format);
+        this.text = textArea.getText();
+        this.filename = textField.getText();
+        this.file_format = comBoBox1.getValue();
+        SaveFromJavaFX a = new SaveFromJavaFX(text, filename, file_format);
         this.list.add(filename);
         this.imageView.setImage(image);
         putData(this.filename);
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comBoBox.setItems(list);
@@ -96,6 +95,14 @@ public class Controller extends TouristDescription implements Initializable  {
 
     public void comBoBoxChanged(ActionEvent actionEvent) throws IOException {
         label.setText(comBoBox.getValue());
+        int dem = this.list.size();
+        for (int i = 15; i < dem; i++) {
+            if (comBoBox.getValue() == this.list.get(i)) {
+                this.imageView.setImage(this.image);
+                putData(this.list.get(i));
+            }
+        }
+
         if (comBoBox.getValue() == "TouristPlace") {
             this.imageView.setImage(this.image0);
             putData(0);
@@ -163,43 +170,41 @@ public class Controller extends TouristDescription implements Initializable  {
             this.imageView.setImage(this.image14);
             putData(14);
         }
-        if(comBoBox.getValue()==this.filename)
-        {
-            this.imageView.setImage(image);
-            putData(this.filename);
-           // System.out.println(this.filename);
-        }
+
     }
 
     private void putData(int qu) throws IOException {
         touristList = FXCollections.observableArrayList();
         for (int i = 0; i < Data.getDem(); i++) {
-            touristList.add(new DuLieuDuLich(i, qu));
+            touristList.add(new TouristData(i, qu));
         }
-        linkClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, Hyperlink>("linkDulieu"));
-        abtractClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, String>("abtractDulieu"));
-        thumbClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, String>("thumnailDulieu"));
+        linkClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, Hyperlink>("linkDulieu"));
+        abtractClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, String>("abtractDulieu"));
+        thumbClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, String>("thumnailDulieu"));
         table.setItems(touristList);
     }
+
+    private int query = super.getDem();
+
     private void putData(String filename) throws IOException {
         touristList = FXCollections.observableArrayList();
         for (int i = 0; i < Data.getDem(); i++) {
-            touristList.add(new DuLieuDuLich(i,8,filename));
+            touristList.add(new TouristData(i, query, filename));
         }
-        linkClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, Hyperlink>("linkDulieu"));
-        abtractClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, String>("abtractDulieu"));
-        thumbClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, String>("thumnailDulieu"));
+        linkClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, Hyperlink>("linkDulieu"));
+        abtractClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, String>("abtractDulieu"));
+        thumbClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, String>("thumnailDulieu"));
         table.setItems(touristList);
     }
 
     private void putData(double a) throws IOException {
         touristList = FXCollections.observableArrayList();
-        touristList.add(new DuLieuDuLich("Welcome", "This is a javaFX function", "To see information"));
-        touristList.add(new DuLieuDuLich("Choose", "The ComboBox to see more", "Thank You"));
+        touristList.add(new TouristData("Welcome", "This is a javaFX function", "To see information"));
+        touristList.add(new TouristData("Choose", "The ComboBox to see more", "Thank You"));
 
-        linkClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, Hyperlink>("linkDulieu"));
-        abtractClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, String>("abtractDulieu"));
-        thumbClolumn.setCellValueFactory(new PropertyValueFactory<DuLieuDuLich, String>("thumnailDulieu"));
+        linkClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, Hyperlink>("linkDulieu"));
+        abtractClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, String>("abtractDulieu"));
+        thumbClolumn.setCellValueFactory(new PropertyValueFactory<TouristData, String>("thumnailDulieu"));
         table.setItems(touristList);
 
     }

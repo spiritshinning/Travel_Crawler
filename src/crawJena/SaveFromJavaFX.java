@@ -8,49 +8,51 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.rdf.model.Model;
 
 import java.io.*;
-import java.util.Scanner;
 
-import static crawJena.SaveFormFile.que;
+public class SaveFromJavaFX extends FormatSaved {
 
-public class SaveFromJavaFX extends Formatsaved{
-    public SaveFromJavaFX(String text, String filename, String file_format) throws IOException {
-        this.SaveFromJavaFX(text,filename,file_format);
+    @Override
+    String getFormat(String text) {
+        return text;
     }
 
-    public void SaveFromJavaFX(String text, String filename, String fileformat) throws IOException {
-        GetQuery preQuery=new GetQuery();
+    public SaveFromJavaFX(String text, String filename, String file_format) throws IOException {
+        this.SaveFromJavaFX(text, filename, file_format);
+    }
+
+    public void SaveFromJavaFX(String text, String filename, String fileFormat) throws IOException {
+        GetQuery preQuery = new GetQuery();
         String location = preQuery.Relocation();
         ParameterizedSparqlString queryStr = preQuery.getQuery(text);
         Query query = queryStr.asQuery();
-        QueryExecution x= QueryExecutionFactory.sparqlService(location,query);
-        String pathName="src/fliesaved/";
-        Model model=x.execConstruct();
-        File file = new File(pathName+filename+".ttl");
+        QueryExecution x = QueryExecutionFactory.sparqlService(location, query);
+        String pathName = "src/fliesaved/";
+        Model model = x.execConstruct();
+        String tailForm = ".ttl";
+        if (fileFormat == "JSON-LD") tailForm = ".json";
+        if (fileFormat == "RDF/XML") tailForm = ".rdf";
+        if (fileFormat == "N-TRIPLES") tailForm = ".nt";
+        if (fileFormat == "RDF/JSON") tailForm = ".rdf";
+        File file = new File(pathName + filename + tailForm);
         file.createNewFile();
         OutputStream outputStream = new FileOutputStream(file);
-        model.write(outputStream, fileformat);
-        String pathNametxt="src/fileout/";
-        File filetxt = new File(pathNametxt+filename+".txt");
+        model.write(outputStream, fileFormat);
+        String pathNametxt = "src/fileout/";
+        File filetxt = new File(pathNametxt + filename + ".txt");
         filetxt.createNewFile();
         outputStream = new FileOutputStream(filetxt);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
         TouristDescription TD = new TouristDescription();
-        String[][] a= TD.getDataTourist(text);
+        String[][] a = TD.getDataTourist(getFormat(text));
         int dem = TD.getDem();
-        for(int i=0;i<dem;i++)
-        {
+        for (int i = 0; i < dem; i++) {
             // System.out.println(a[i][0]+"\n"+a[i][1]+"\n"+a[i][2]+"\n\n");
-            outputStreamWriter.write(a[i][0]+"\n");
-            outputStreamWriter.write(a[i][1]+"\n");
-            outputStreamWriter.write(a[i][2]+"\n");
+            outputStreamWriter.write(a[i][0] + "\n");
+            outputStreamWriter.write(a[i][1] + "\n");
+            outputStreamWriter.write(a[i][2] + "\n");
             outputStreamWriter.write("\n");
         }
         outputStreamWriter.flush();
     }
 
-    @Override
-    String getFormat(String text) {
-        if(text=="TURTLE") return "TTL";
-        return text;
-    }
 }
