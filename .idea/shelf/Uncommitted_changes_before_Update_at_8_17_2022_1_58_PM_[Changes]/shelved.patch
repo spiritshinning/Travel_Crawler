@@ -1,0 +1,342 @@
+Index: src/vemanhinh/ItemController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package vemanhinh;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.input.MouseEvent;\r\n\r\npublic class ItemController {\r\n    @FXML\r\n    private Label nameLabel;\r\n\r\n    @FXML\r\n    private Label priceLable;\r\n\r\n    @FXML\r\n    private ImageView img;\r\n\r\n    @FXML\r\n    private void click(MouseEvent mouseEvent) {\r\n        myListener.onClickListener(member);\r\n    }\r\n\r\n    private Member member;\r\n    private MyListener myListener;\r\n\r\n    public void setData(Member member, MyListener myListener) {\r\n        this.member = member;\r\n        this.myListener = myListener;\r\n        nameLabel.setText(member.getName());\r\n        priceLable.setText(member.getPrice() + Draw_midterm_OOP_thay_Dat.Contribute);\r\n        Image image = new Image(getClass().getResourceAsStream(member.getImgSrc()));\r\n        img.setImage(image);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/vemanhinh/ItemController.java b/src/vemanhinh/ItemController.java
+--- a/src/vemanhinh/ItemController.java	(revision d35ff60cc8386d651d1dfbb38e227a48c0980309)
++++ b/src/vemanhinh/ItemController.java	(date 1660717905800)
+@@ -4,7 +4,8 @@
+ import javafx.scene.control.Label;
+ import javafx.scene.image.Image;
+ import javafx.scene.image.ImageView;
+-import javafx.scene.input.MouseEvent;
++
++import java.util.Objects;
+ 
+ public class ItemController {
+     @FXML
+@@ -17,7 +18,7 @@
+     private ImageView img;
+ 
+     @FXML
+-    private void click(MouseEvent mouseEvent) {
++    private void click() {
+         myListener.onClickListener(member);
+     }
+ 
+@@ -28,8 +29,8 @@
+         this.member = member;
+         this.myListener = myListener;
+         nameLabel.setText(member.getName());
+-        priceLable.setText(member.getPrice() + Draw_midterm_OOP_thay_Dat.Contribute);
+-        Image image = new Image(getClass().getResourceAsStream(member.getImgSrc()));
++        priceLable.setText(member.getPrice() + Draw.Contribute);
++        Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(member.getImgSrc())));
+         img.setImage(image);
+     }
+ }
+Index: src/vemanhinh/Draw_midterm_OOP_thay_Dat.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java b/src/vemanhinh/Draw.java
+rename from src/vemanhinh/Draw_midterm_OOP_thay_Dat.java
+rename to src/vemanhinh/Draw.java
+--- a/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java	(revision d35ff60cc8386d651d1dfbb38e227a48c0980309)
++++ b/src/vemanhinh/Draw.java	(date 1660717905373)
+@@ -6,16 +6,16 @@
+ import javafx.scene.Scene;
+ import javafx.stage.Stage;
+ 
+-import java.io.IOException;
++import java.util.Objects;
+ 
+-public class Draw_midterm_OOP_thay_Dat extends Application {
++public class Draw extends Application {
+ 
+     public static final String Contribute = "%";
+ 
+     @Override
+-    public void start(Stage primaryStage) throws IOException {
++    public void start(Stage primaryStage) {
+         try {
+-            Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
++            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("market.fxml")));
+             primaryStage.setTitle("Squad");
+             primaryStage.setScene(new Scene(root));
+             primaryStage.show();
+Index: src/vemanhinh/MarketController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package vemanhinh;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.Node;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.ScrollPane;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.layout.GridPane;\r\nimport javafx.scene.layout.Region;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.stage.Stage;\r\nimport vedulieu.VeJavaFX;\r\n\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Objects;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class MarketController implements Initializable {\r\n\r\n    @FXML\r\n    private Button buttonScene;\r\n    @FXML\r\n    private VBox chosenMemberCard;\r\n\r\n    @FXML\r\n    private Label memberNameLable;\r\n\r\n    @FXML\r\n    private Label memberPriceLabel;\r\n\r\n    @FXML\r\n    private ImageView fruitImg;\r\n\r\n    @FXML\r\n    private ScrollPane scroll;\r\n\r\n    @FXML\r\n    private GridPane grid;\r\n\r\n    private List<Member> members = new ArrayList<>();\r\n    private Image image;\r\n    private MyListener myListener;\r\n\r\n    private List<Member> getData() {\r\n        List<Member> members = new ArrayList<>();\r\n        Member member;\r\n\r\n        member = new Member();\r\n        member.setName(\"Đào Minh Chí\");\r\n        member.setPrice(10);\r\n        member.setImgSrc(\"/vemanhinh/img/kiwi.jpg\");\r\n        member.setColor(\"6A7324\");\r\n        members.add(member);\r\n\r\n        member = new Member();\r\n        member.setName(\"Nguyễn Minh Quân\");\r\n        member.setPrice(10);\r\n        member.setImgSrc(\"/vemanhinh/img/quan.jpg\");\r\n        member.setColor(\"A7745B\");\r\n        members.add(member);\r\n\r\n        member = new Member();\r\n        member.setName(\"Vũ Đức Toản\");\r\n        member.setPrice(10);\r\n        member.setImgSrc(\"/vemanhinh/img/toan.jpg\");\r\n        member.setColor(\"F16C31\");\r\n        members.add(member);\r\n\r\n        member = new Member();\r\n        member.setName(\"Vũ Thùy Linh\");\r\n        member.setPrice(10);\r\n        member.setImgSrc(\"/vemanhinh/img/linh.jpg\");\r\n        member.setColor(\"291D36\");\r\n        members.add(member);\r\n\r\n        return members;\r\n    }\r\n\r\n    private void setChosenFruit(Member member) {\r\n        memberNameLable.setText(member.getName());\r\n        memberPriceLabel.setText(member.getPrice() + Draw_midterm_OOP_thay_Dat.Contribute);\r\n        //System.out.println(fruit.getImgSrc());\r\n        image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(member.getImgSrc())));\r\n        fruitImg.setImage(image);\r\n        chosenMemberCard.setStyle(\"-fx-background-color: #\" + member.getColor() + \";\\n\" +\r\n                \"    -fx-background-radius: 30;\");\r\n    }\r\n\r\n    @Override\r\n    public void initialize(URL location, ResourceBundle resources) {\r\n        members.addAll(getData());\r\n        if (members.size() > 0) {\r\n            setChosenFruit(members.get(0));\r\n            myListener = new MyListener() {\r\n                @Override\r\n                public void onClickListener(Member member) {\r\n                    setChosenFruit(member);\r\n                }\r\n            };\r\n        }\r\n        int column = 0;\r\n        int row = 1;\r\n        try {\r\n            for (int i = 0; i < members.size(); i++) {\r\n                FXMLLoader fxmlLoader = new FXMLLoader();\r\n                fxmlLoader.setLocation(getClass().getResource(\"item.fxml\"));\r\n                AnchorPane anchorPane = fxmlLoader.load();\r\n\r\n                ItemController itemController = fxmlLoader.getController();\r\n                itemController.setData(members.get(i), myListener);\r\n\r\n                if (column == 2) {\r\n                    column = 0;\r\n                    row++;\r\n                }\r\n\r\n                grid.add(anchorPane, column++, row); //(child,column,row)\r\n                //set grid width\r\n                grid.setMinWidth(Region.USE_COMPUTED_SIZE);\r\n                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);\r\n                grid.setMaxWidth(Region.USE_PREF_SIZE);\r\n\r\n                //set grid height\r\n                grid.setMinHeight(Region.USE_COMPUTED_SIZE);\r\n                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);\r\n                grid.setMaxHeight(Region.USE_PREF_SIZE);\r\n\r\n                GridPane.setMargin(anchorPane, new Insets(10));\r\n            }\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void changedScene(ActionEvent e) throws IOException {\r\n        VeJavaFX veJavaFx = new VeJavaFX();\r\n        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();\r\n        veJavaFx.start(stage);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/vemanhinh/MarketController.java b/src/vemanhinh/MarketController.java
+--- a/src/vemanhinh/MarketController.java	(revision d35ff60cc8386d651d1dfbb38e227a48c0980309)
++++ b/src/vemanhinh/MarketController.java	(date 1660717905389)
+@@ -57,38 +57,17 @@
+ 
+         member = new Member();
+         member.setName("Đào Minh Chí");
+-        member.setPrice(10);
++        member.setPrice(100);
+         member.setImgSrc("/vemanhinh/img/kiwi.jpg");
+         member.setColor("6A7324");
+         members.add(member);
+-
+-        member = new Member();
+-        member.setName("Nguyễn Minh Quân");
+-        member.setPrice(10);
+-        member.setImgSrc("/vemanhinh/img/quan.jpg");
+-        member.setColor("A7745B");
+-        members.add(member);
+-
+-        member = new Member();
+-        member.setName("Vũ Đức Toản");
+-        member.setPrice(10);
+-        member.setImgSrc("/vemanhinh/img/toan.jpg");
+-        member.setColor("F16C31");
+-        members.add(member);
+-
+-        member = new Member();
+-        member.setName("Vũ Thùy Linh");
+-        member.setPrice(10);
+-        member.setImgSrc("/vemanhinh/img/linh.jpg");
+-        member.setColor("291D36");
+-        members.add(member);
+-
+         return members;
+     }
+ 
+     private void setChosenFruit(Member member) {
+         memberNameLable.setText(member.getName());
+-        memberPriceLabel.setText(member.getPrice() + Draw_midterm_OOP_thay_Dat.Contribute);
++        memberPriceLabel.setText(member.getPrice() +
++                Draw.Contribute);
+         //System.out.println(fruit.getImgSrc());
+         image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(member.getImgSrc())));
+         fruitImg.setImage(image);
+Index: src/vemanhinh/item.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import java.lang.String?>\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane onMousePressed=\"#click\" stylesheets=\"@style.css\" xmlns=\"http://javafx.com/javafx/18\"\r\n            xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"vemanhinh.ItemController\">\r\n    <children>\r\n        <VBox alignment=\"TOP_CENTER\" layoutX=\"63.0\" layoutY=\"8.0\" prefHeight=\"325.0\" prefWidth=\"325.0\"\r\n              AnchorPane.bottomAnchor=\"0.0\" AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\"\r\n              AnchorPane.topAnchor=\"0.0\">\r\n            <children>\r\n                <HBox prefHeight=\"80.0\" prefWidth=\"185.0\">\r\n                    <children>\r\n                        <Label fx:id=\"nameLabel\" prefHeight=\"50.0\" prefWidth=\"203.0\" text=\"Cherry\">\r\n                            <font>\r\n                                <Font name=\"Cambria\" size=\"24.0\"/>\r\n                            </font>\r\n                        </Label>\r\n                        <Label fx:id=\"priceLable\" prefHeight=\"50.0\" prefWidth=\"124.0\" text=\"\\$0.99\">\r\n                            <font>\r\n                                <Font name=\"Cambria Bold\" size=\"18.0\"/>\r\n                            </font>\r\n                        </Label>\r\n                    </children>\r\n                    <VBox.margin>\r\n                        <Insets left=\"20.0\" top=\"20.0\"/>\r\n                    </VBox.margin>\r\n                </HBox>\r\n                <ImageView fx:id=\"img\" fitHeight=\"200.0\" fitWidth=\"200.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n                    <image>\r\n                        <Image url=\"@img/cherry.png\"/>\r\n                    </image>\r\n                </ImageView>\r\n            </children>\r\n        </VBox>\r\n    </children>\r\n    <styleClass>\r\n        <String fx:value=\"fruit-item\"/>\r\n        <String fx:value=\"shadow\"/>\r\n    </styleClass>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/vemanhinh/item.fxml b/src/vemanhinh/item.fxml
+--- a/src/vemanhinh/item.fxml	(revision d35ff60cc8386d651d1dfbb38e227a48c0980309)
++++ b/src/vemanhinh/item.fxml	(date 1660711954520)
+@@ -36,7 +36,7 @@
+                 </HBox>
+                 <ImageView fx:id="img" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+-                        <Image url="@img/cherry.png"/>
++                        <Image url="@img/kiwi.jpg"/>
+                     </image>
+                 </ImageView>
+             </children>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"27034fb4-b0c3-4866-bd0c-ab2665fdebb8\" name=\"Changes\" comment=\"test commit\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_dlsc_formsfx_formsfx_core_11_3_2.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_17.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_core_17.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_entity_17.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_gameplay_17.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_io_17.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_scene_17.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_audio_4_0_9.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_lifecycle_4_0_9.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_storage_4_0_9.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_util_4_0_9.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__eu_hansolo_tilesfx_11_48.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__net_synedra_validatorfx_0_2_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_controlsfx_controlsfx_11_1_1.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_5_32.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_modular_1_5_32.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_bootstrapfx_bootstrapfx_core_0_4_0.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_ikonli_ikonli_core_12_3_0.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_ikonli_ikonli_javafx_12_3_0.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_win_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_win_18.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/apache_jena_core.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ShowData/PrintData.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ShowData/PrintData.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ShowData/ReadTxt.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ShowData/ReadTxt.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/ShowData/TouristDescription.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/ShowData/TouristDescription.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawJena/CrawRDF.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawJena/CrawRDF.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawJena/Formatsaved.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawJena/FormatSaved.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawJena/GetQuery.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawJena/GetQuery.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawJena/GetResultSet.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawJena/GetResultSet.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawJena/SaveFormFile.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawJena/SaveFormFile.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/crawJena/SaveFromJavaFX.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/crawJena/SaveFromJavaFX.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vedulieu/Controller.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vedulieu/Controller.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vedulieu/DuLieuDuLich.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vedulieu/TouristData.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vedulieu/Sample.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vedulieu/Sample.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vedulieu/VeJavaFX.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vedulieu/VeJavaFX.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vemanhinh/ItemController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vemanhinh/ItemController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vemanhinh/MarketController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vemanhinh/MarketController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vemanhinh/item.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vemanhinh/item.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vemanhinh/market.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vemanhinh/market.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/vemanhinh/style.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/vemanhinh/style.css\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"module-info\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Merge.Settings\">\r\n    <option name=\"BRANCH\" value=\"origin/master\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2BFtiiCRIyri84lmggsaasKlvVN\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,\r\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,\r\n    &quot;last_directory_selection&quot;: &quot;D:/20212/midtermjava/testjena/src/vedulieu&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/minhhotboy9x/Downloads/Project&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\src\\vemanhinh\" />\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\src\\JavaFXDraw\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\src\\vedulieu\\img\" />\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\src\\vedulieu\\vedulieu\" />\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\src\\vemanhinh\" />\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\JavaFX\\src\\main\\java\\com\\example\\javafx\" />\r\n      <recent name=\"D:\\20212\\midtermjava\\testjena\\demo\\src\\main\\java\\com\\example\\demo\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.example.demo\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.vedulieu.VeJavaFX\">\r\n    <configuration name=\"Draw_midterm_OOP_thay_Dat\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"vemanhinh.Draw_midterm_OOP_thay_Dat\" />\r\n      <module name=\"testjena\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"vemanhinh.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"VeJavaFX\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"vedulieu.VeJavaFX\" />\r\n      <module name=\"testjena\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"--module-path &quot;C:\\Users\\minhhotboy9x\\Downloads\\openjfx-18.0.1_windows-x64_bin-sdk\\javafx-sdk-18.0.1\\lib --add-modules javafx.controls,javafx.fxml\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"vedulieu.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"VeThanhVien\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"vemanhinh.VeThanhVien\" />\r\n      <module name=\"testjena\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"vemanhinh.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"crawJena.SaveFormFile\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"crawJena.SaveFormFile\" />\r\n      <module name=\"testjena\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"crawJena.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"vedulieu.testt\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"vedulieu.testt\" />\r\n      <module name=\"testjena\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"vedulieu.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"vemanhinh.Main\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"18\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"vemanhinh.Main\" />\r\n      <module name=\"testjena\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\"--module-path &quot;C:\\Users\\minhhotboy9x\\Downloads\\openjfx-18.0.1_windows-x64_bin-sdk\\javafx-sdk-18.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;C:\\Users\\minhhotboy9x\\Downloads\\openjfx-18.0.1_windows-x64_bin-sdk\\javafx-sdk-18.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"vemanhinh.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.vemanhinh.Main\" />\r\n      <item itemvalue=\"Application.crawJena.SaveFormFile\" />\r\n      <item itemvalue=\"Application.vedulieu.testt\" />\r\n      <item itemvalue=\"Application.Draw_midterm_OOP_thay_Dat\" />\r\n      <item itemvalue=\"Application.VeThanhVien\" />\r\n      <item itemvalue=\"Application.vedulieu.VeJavaFX\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.vedulieu.VeJavaFX\" />\r\n        <item itemvalue=\"Application.Draw_midterm_OOP_thay_Dat\" />\r\n        <item itemvalue=\"Application.VeThanhVien\" />\r\n        <item itemvalue=\"Application.crawJena.SaveFormFile\" />\r\n        <item itemvalue=\"Application.vedulieu.testt\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"27034fb4-b0c3-4866-bd0c-ab2665fdebb8\" name=\"Changes\" comment=\"\" />\r\n      <created>1656513790008</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1656513790008</updated>\r\n      <workItem from=\"1656513791326\" duration=\"19811000\" />\r\n      <workItem from=\"1656751292349\" duration=\"3741000\" />\r\n      <workItem from=\"1656774200727\" duration=\"22043000\" />\r\n      <workItem from=\"1656848218146\" duration=\"1516000\" />\r\n      <workItem from=\"1656849799393\" duration=\"1396000\" />\r\n      <workItem from=\"1656851275178\" duration=\"2266000\" />\r\n      <workItem from=\"1656853982652\" duration=\"3389000\" />\r\n      <workItem from=\"1656862814202\" duration=\"2369000\" />\r\n      <workItem from=\"1656866623531\" duration=\"224000\" />\r\n      <workItem from=\"1656913571438\" duration=\"784000\" />\r\n      <workItem from=\"1656945237241\" duration=\"165000\" />\r\n      <workItem from=\"1656945584423\" duration=\"16272000\" />\r\n      <workItem from=\"1656992245484\" duration=\"16100000\" />\r\n      <workItem from=\"1657031176211\" duration=\"8779000\" />\r\n      <workItem from=\"1657094046375\" duration=\"8883000\" />\r\n      <workItem from=\"1657177653290\" duration=\"1187000\" />\r\n      <workItem from=\"1657190793893\" duration=\"334000\" />\r\n      <workItem from=\"1657191286583\" duration=\"8626000\" />\r\n      <workItem from=\"1657254215695\" duration=\"2095000\" />\r\n      <workItem from=\"1657285863905\" duration=\"697000\" />\r\n      <workItem from=\"1657287558125\" duration=\"1677000\" />\r\n      <workItem from=\"1657289821659\" duration=\"127000\" />\r\n      <workItem from=\"1657290017037\" duration=\"555000\" />\r\n      <workItem from=\"1657292280928\" duration=\"359000\" />\r\n      <workItem from=\"1657294441404\" duration=\"5162000\" />\r\n      <workItem from=\"1657299661456\" duration=\"487000\" />\r\n      <workItem from=\"1657300181552\" duration=\"4682000\" />\r\n      <workItem from=\"1657337543064\" duration=\"445000\" />\r\n      <workItem from=\"1657338010200\" duration=\"3922000\" />\r\n      <workItem from=\"1657346879833\" duration=\"6183000\" />\r\n      <workItem from=\"1657353182474\" duration=\"6113000\" />\r\n      <workItem from=\"1657370280476\" duration=\"212000\" />\r\n      <workItem from=\"1657370544196\" duration=\"14303000\" />\r\n      <workItem from=\"1657389113495\" duration=\"10647000\" />\r\n      <workItem from=\"1657399881714\" duration=\"4000\" />\r\n      <workItem from=\"1657399951807\" duration=\"587000\" />\r\n      <workItem from=\"1657423767822\" duration=\"7015000\" />\r\n      <workItem from=\"1657438953380\" duration=\"5116000\" />\r\n      <workItem from=\"1657449856818\" duration=\"5317000\" />\r\n      <workItem from=\"1657458103107\" duration=\"9102000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"test commit\">\r\n      <created>1657427727089</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657427727089</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"test commit\">\r\n      <created>1657428246587</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657428246587</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$/JavaFX\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"test commit\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"test commit\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d35ff60cc8386d651d1dfbb38e227a48c0980309)
++++ b/.idea/workspace.xml	(date 1660717913359)
+@@ -5,67 +5,15 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="27034fb4-b0c3-4866-bd0c-ab2665fdebb8" name="Changes" comment="test commit">
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_dlsc_formsfx_formsfx_core_11_3_2.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_1.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_1.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_1.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_17.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_core_17.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_entity_17.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_gameplay_17.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_io_17.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_almasb_fxgl_scene_17.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_audio_4_0_9.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_lifecycle_4_0_9.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_storage_4_0_9.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_gluonhq_attach_util_4_0_9.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__eu_hansolo_tilesfx_11_48.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_synedra_validatorfx_0_2_1.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_controlsfx_controlsfx_11_1_1.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_5_32.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_modular_1_5_32.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_bootstrapfx_bootstrapfx_core_0_4_0.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_ikonli_ikonli_core_12_3_0.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_kordamp_ikonli_ikonli_javafx_12_3_0.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_win_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_web_win_18.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/apache_jena_core.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ShowData/PrintData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowData/PrintData.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ShowData/ReadTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowData/ReadTxt.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/ShowData/TouristDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowData/TouristDescription.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawJena/CrawRDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/CrawRDF.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawJena/Formatsaved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/FormatSaved.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawJena/GetQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/GetQuery.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawJena/GetResultSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/GetResultSet.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawJena/SaveFormFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/SaveFormFile.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/crawJena/SaveFromJavaFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crawJena/SaveFromJavaFX.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/vedulieu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/Controller.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/vedulieu/DuLieuDuLich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/TouristData.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/vedulieu/Sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/Sample.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/vedulieu/VeJavaFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vedulieu/VeJavaFX.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/vemanhinh/Draw_midterm_OOP_thay_Dat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/Draw.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/vemanhinh/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/ItemController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/vemanhinh/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/MarketController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/linh.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/quan.jpg" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/vemanhinh/img/toan.jpg" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/vemanhinh/item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/item.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/vemanhinh/market.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/market.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/vemanhinh/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/vemanhinh/style.css" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -139,9 +87,9 @@
+       <recent name="com.example.demo" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.vedulieu.VeJavaFX">
+-    <configuration name="Draw_midterm_OOP_thay_Dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="vemanhinh.Draw_midterm_OOP_thay_Dat" />
++  <component name="RunManager" selected="Application.Draw">
++    <configuration name="Draw" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="vemanhinh.Draw" />
+       <module name="testjena" />
+       <extension name="coverage">
+         <pattern>
+@@ -153,13 +101,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="VeJavaFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="vedulieu.VeJavaFX" />
++    <configuration name="Draw_member" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="vemanhinh.Draw_member" />
+       <module name="testjena" />
+-      <option name="PROGRAM_PARAMETERS" value="--module-path &quot;C:\Users\minhhotboy9x\Downloads\openjfx-18.0.1_windows-x64_bin-sdk\javafx-sdk-18.0.1\lib --add-modules javafx.controls,javafx.fxml" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="vedulieu.*" />
++          <option name="PATTERN" value="vemanhinh.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -167,8 +114,8 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="VeThanhVien" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="vemanhinh.VeThanhVien" />
++    <configuration name="Draw_midterm_OOP_thay_Dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="vemanhinh.Draw_midterm_OOP_thay_Dat" />
+       <module name="testjena" />
+       <extension name="coverage">
+         <pattern>
+@@ -180,12 +127,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="crawJena.SaveFormFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="crawJena.SaveFormFile" />
++    <configuration name="VeJavaFX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="vedulieu.VeJavaFX" />
+       <module name="testjena" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="crawJena.*" />
++          <option name="PATTERN" value="vedulieu.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -193,12 +140,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="vedulieu.testt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="vedulieu.testt" />
++    <configuration name="VeThanhVien" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="vemanhinh.VeThanhVien" />
+       <module name="testjena" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="vedulieu.*" />
++          <option name="PATTERN" value="vemanhinh.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -225,19 +172,19 @@
+     </configuration>
+     <list>
+       <item itemvalue="Application.vemanhinh.Main" />
+-      <item itemvalue="Application.crawJena.SaveFormFile" />
+-      <item itemvalue="Application.vedulieu.testt" />
++      <item itemvalue="Application.Draw" />
++      <item itemvalue="Application.Draw_member" />
++      <item itemvalue="Application.VeJavaFX" />
+       <item itemvalue="Application.Draw_midterm_OOP_thay_Dat" />
+       <item itemvalue="Application.VeThanhVien" />
+-      <item itemvalue="Application.vedulieu.VeJavaFX" />
+     </list>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.vedulieu.VeJavaFX" />
++        <item itemvalue="Application.Draw" />
+         <item itemvalue="Application.Draw_midterm_OOP_thay_Dat" />
++        <item itemvalue="Application.Draw_member" />
++        <item itemvalue="Application.VeJavaFX" />
+         <item itemvalue="Application.VeThanhVien" />
+-        <item itemvalue="Application.crawJena.SaveFormFile" />
+-        <item itemvalue="Application.vedulieu.testt" />
+       </list>
+     </recent_temporary>
+   </component>
+Index: src/vemanhinh/market.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import java.lang.String?>\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.ScrollPane?>\r\n<?import javafx.scene.control.Separator?>\r\n<?import javafx.scene.control.TextArea?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.layout.GridPane?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.Pane?>\r\n<?import javafx.scene.layout.RowConstraints?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"800.0\"\r\n            prefWidth=\"1200.0\" xmlns=\"http://javafx.com/javafx/18\" xmlns:fx=\"http://javafx.com/fxml/1\"\r\n            fx:controller=\"vemanhinh.MarketController\">\r\n    <children>\r\n        <BorderPane layoutX=\"6.0\" prefHeight=\"200.0\" prefWidth=\"200.0\" AnchorPane.bottomAnchor=\"0.0\"\r\n                    AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"0.0\">\r\n            <left>\r\n                <VBox prefHeight=\"800.0\" prefWidth=\"476.0\" styleClass=\"right-bar\" stylesheets=\"@style.css\"\r\n                      BorderPane.alignment=\"CENTER\">\r\n                    <children>\r\n                        <HBox alignment=\"CENTER\" prefHeight=\"110.0\" prefWidth=\"200.0\">\r\n                            <children>\r\n                                <Label prefHeight=\"49.0\" prefWidth=\"128.0\" text=\"Group\" textFill=\"#878787\">\r\n                                    <font>\r\n                                        <Font name=\"Cambria Bold\" size=\"40.0\"/>\r\n                                    </font>\r\n                                </Label>\r\n                                <Label text=\"Member\" textFill=\"#878787\">\r\n                                    <font>\r\n                                        <Font name=\"Cambria\" size=\"40.0\"/>\r\n                                    </font>\r\n                                </Label>\r\n                            </children>\r\n                        </HBox>\r\n                        <HBox alignment=\"CENTER\" prefHeight=\"65.0\" prefWidth=\"200.0\" stylesheets=\"@style.css\"\r\n                              VBox.vgrow=\"NEVER\">\r\n                            <VBox.margin>\r\n                                <Insets left=\"30.0\" right=\"30.0\"/>\r\n                            </VBox.margin>\r\n                            <children>\r\n                                <TextField prefHeight=\"40.0\" prefWidth=\"235.0\" promptText=\"Type here to search\"\r\n                                           styleClass=\"transparent\" stylesheets=\"@style.css\">\r\n                                    <HBox.margin>\r\n                                        <Insets left=\"20.0\"/>\r\n                                    </HBox.margin>\r\n                                    <font>\r\n                                        <Font name=\"Cambria\" size=\"18.0\"/>\r\n                                    </font>\r\n                                </TextField>\r\n                                <Button mnemonicParsing=\"false\" prefHeight=\"40.0\" prefWidth=\"100.0\"\r\n                                        styleClass=\"search-button\" stylesheets=\"@style.css\" text=\"Search\"\r\n                                        textFill=\"WHITE\"/>\r\n                            </children>\r\n                            <styleClass>\r\n                                <String fx:value=\"search-box\"/>\r\n                                <String fx:value=\"shadow\"/>\r\n                            </styleClass>\r\n                        </HBox>\r\n                        <Pane prefHeight=\"57.0\" prefWidth=\"435.0\" VBox.vgrow=\"ALWAYS\"/>\r\n                        <VBox fx:id=\"chosenMemberCard\" alignment=\"CENTER\" prefHeight=\"565.0\" prefWidth=\"376.0\"\r\n                              stylesheets=\"@style.css\">\r\n                            <VBox.margin>\r\n                                <Insets left=\"50.0\" right=\"50.0\"/>\r\n                            </VBox.margin>\r\n                            <children>\r\n                                <HBox prefHeight=\"60.0\" prefWidth=\"335.0\">\r\n                                    <children>\r\n                                        <Label fx:id=\"memberNameLable\" prefHeight=\"48.0\" prefWidth=\"350.0\" text=\"Chí\"\r\n                                               textFill=\"WHITE\" textOverrun=\"CENTER_ELLIPSIS\">\r\n                                            <font>\r\n                                                <Font name=\"Cambria\" size=\"36.0\"/>\r\n                                            </font>\r\n                                        </Label>\r\n                                    </children>\r\n                                    <VBox.margin>\r\n                                        <Insets left=\"20.0\" top=\"30.0\"/>\r\n                                    </VBox.margin>\r\n                                </HBox>\r\n                                <ImageView fx:id=\"fruitImg\" fitHeight=\"217.0\" fitWidth=\"285.0\" pickOnBounds=\"true\"\r\n                                           preserveRatio=\"true\">\r\n                                    <image>\r\n                                        <Image url=\"@img/peach.png\"/>\r\n                                    </image>\r\n                                    <VBox.margin>\r\n                                        <Insets top=\"20.0\"/>\r\n                                    </VBox.margin>\r\n                                </ImageView>\r\n                                <HBox alignment=\"CENTER\" prefHeight=\"53.0\" prefWidth=\"335.0\">\r\n                                    <children>\r\n                                        <Label prefHeight=\"54.0\" prefWidth=\"222.0\" text=\"Contribute\" textFill=\"#feffff\">\r\n                                            <font>\r\n                                                <Font size=\"36.0\"/>\r\n                                            </font>\r\n                                        </Label>\r\n                                        <Label fx:id=\"memberPriceLabel\" prefHeight=\"52.0\" prefWidth=\"154.0\" text=\"10%\"\r\n                                               textAlignment=\"JUSTIFY\" textFill=\"WHITE\">\r\n                                            <font>\r\n                                                <Font name=\"Cambria\" size=\"36.0\"/>\r\n                                            </font>\r\n                                        </Label>\r\n                                    </children>\r\n                                    <VBox.margin>\r\n                                        <Insets top=\"20.0\"/>\r\n                                    </VBox.margin>\r\n                                </HBox>\r\n                                <AnchorPane prefHeight=\"174.0\" prefWidth=\"376.0\">\r\n                                    <children>\r\n                                        <TextArea layoutX=\"3.0\" layoutY=\"-2.0\" prefHeight=\"251.0\" prefWidth=\"370.0\">\r\n                                            <font>\r\n                                                <Font size=\"24.0\"/>\r\n                                            </font>\r\n                                        </TextArea>\r\n                                    </children>\r\n                                </AnchorPane>\r\n                                <HBox alignment=\"CENTER\" prefHeight=\"45.0\" prefWidth=\"200.0\">\r\n                                    <VBox.margin>\r\n                                        <Insets bottom=\"20.0\" top=\"20.0\"/>\r\n                                    </VBox.margin>\r\n                                    <children>\r\n                                        <Separator prefHeight=\"0.0\" prefWidth=\"118.0\"/>\r\n                                        <Separator prefHeight=\"0.0\" prefWidth=\"118.0\"/>\r\n                                    </children>\r\n                                </HBox>\r\n                                <HBox alignment=\"CENTER\" prefHeight=\"53.0\" prefWidth=\"335.0\"/>\r\n                            </children>\r\n                            <styleClass>\r\n                                <String fx:value=\"chosen-fruit-card\"/>\r\n                                <String fx:value=\"shadow\"/>\r\n                            </styleClass>\r\n                        </VBox>\r\n                        <Pane prefHeight=\"57.0\" prefWidth=\"435.0\" VBox.vgrow=\"ALWAYS\"/>\r\n                    </children>\r\n                </VBox>\r\n            </left>\r\n            <center>\r\n                <VBox prefHeight=\"200.0\" prefWidth=\"100.0\" BorderPane.alignment=\"CENTER\">\r\n                    <children>\r\n                        <HBox alignment=\"CENTER\" prefHeight=\"65.0\" prefWidth=\"200.0\">\r\n                            <VBox.margin>\r\n                                <Insets left=\"20.0\" right=\"20.0\"/>\r\n                            </VBox.margin>\r\n                            <children>\r\n                                <Pane prefHeight=\"65.0\" prefWidth=\"393.0\" HBox.hgrow=\"ALWAYS\">\r\n                                    <children>\r\n                                        <Button fx:id=\"buttonScene\" layoutX=\"496.0\" layoutY=\"14.0\"\r\n                                                mnemonicParsing=\"false\" onAction=\"#changedScene\" prefHeight=\"35.0\"\r\n                                                prefWidth=\"90.0\" text=\"Press here\"/>\r\n                                        <Label prefHeight=\"63.0\" prefWidth=\"433.0\"\r\n                                               text=\"If you want to find information about tourists in Vietnam\">\r\n                                            <font>\r\n                                                <Font name=\"System Bold Italic\" size=\"16.0\"/>\r\n                                            </font>\r\n                                        </Label>\r\n                                    </children>\r\n                                </Pane>\r\n                                <ImageView fitHeight=\"50.0\" fitWidth=\"55.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n                                    <image>\r\n                                        <Image url=\"@img/ic_delivery.png\"/>\r\n                                    </image>\r\n                                </ImageView>\r\n                            </children>\r\n                        </HBox>\r\n                        <HBox alignment=\"CENTER\" prefHeight=\"100.0\" prefWidth=\"200.0\" VBox.vgrow=\"ALWAYS\">\r\n                            <children>\r\n                                <ScrollPane fx:id=\"scroll\" prefHeight=\"719.0\" prefWidth=\"786.0\" styleClass=\"transparent\"\r\n                                            stylesheets=\"@style.css\">\r\n                                    <content>\r\n                                        <GridPane fx:id=\"grid\" prefHeight=\"0.0\" prefWidth=\"0.0\">\r\n                                            <rowConstraints>\r\n                                                <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\"/>\r\n                                            </rowConstraints>\r\n                                        </GridPane>\r\n                                    </content>\r\n                                    <HBox.margin>\r\n                                        <Insets top=\"10.0\"/>\r\n                                    </HBox.margin>\r\n                                </ScrollPane>\r\n                            </children>\r\n                        </HBox>\r\n                    </children>\r\n                </VBox>\r\n            </center>\r\n        </BorderPane>\r\n    </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/vemanhinh/market.fxml b/src/vemanhinh/market.fxml
+--- a/src/vemanhinh/market.fxml	(revision d35ff60cc8386d651d1dfbb38e227a48c0980309)
++++ b/src/vemanhinh/market.fxml	(date 1660711941170)
+@@ -90,7 +90,7 @@
+                                 <ImageView fx:id="fruitImg" fitHeight="217.0" fitWidth="285.0" pickOnBounds="true"
+                                            preserveRatio="true">
+                                     <image>
+-                                        <Image url="@img/peach.png"/>
++                                        <Image url="@img/kiwi.jpg"/>
+                                     </image>
+                                     <VBox.margin>
+                                         <Insets top="20.0"/>
