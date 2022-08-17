@@ -139,7 +139,7 @@
       <recent name="com.example.demo" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.vedulieu.VeJavaFX">
+  <component name="RunManager" selected="Application.vemanhinh.Main">
     <configuration name="Draw_midterm_OOP_thay_Dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="vemanhinh.Draw_midterm_OOP_thay_Dat" />
       <module name="testjena" />
@@ -225,15 +225,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.vemanhinh.Main" />
+      <item itemvalue="Application.VeJavaFX" />
       <item itemvalue="Application.crawJena.SaveFormFile" />
       <item itemvalue="Application.vedulieu.testt" />
       <item itemvalue="Application.Draw_midterm_OOP_thay_Dat" />
       <item itemvalue="Application.VeThanhVien" />
-      <item itemvalue="Application.vedulieu.VeJavaFX" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.vedulieu.VeJavaFX" />
         <item itemvalue="Application.Draw_midterm_OOP_thay_Dat" />
         <item itemvalue="Application.VeThanhVien" />
         <item itemvalue="Application.crawJena.SaveFormFile" />
